@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../CSS/nav_link_css.css" />
+    <script src="JS/jquery-1.7.1.min.js"></script>
+    <script src="JS/nav_link_js_ashxCtrl.js"></script>
+    <script src="JS/nav_link_js_cssCtrl.js"></script>
+
+</head>
+<body>
+             <div id="nav_link_div" class="proinfo-deliver">
+                           <script>
+                               $.SetNavLink();
+                           </script>
+                                    </div>
+        <!--end--导航-->
+    <script>
+        var level1_id = "";
+        var level2_id = "";
+        var level3_id = "";
+        var level4_id = "";
+        var level5_id = "";
+        var level6_id = "";
+
+        var level1_name = "";
+        var level2_name = "";
+        var level3_name = "";
+        var level4_name = "";
+        var level5_name = "";
+        var level6_name = "";
+
+
+        var nav_firstenter = 0;//首次加载标识 自动触发click至最后一项tab后 为1
+        $(function () {
+            GetLevel1('demo.json');
+
+            TabHide('level4_tab');
+        });
+
+        $.GetLevel1_Click = function () {
+            NavNameEmpty('level2_tab');
+            NavNameEmpty('level3_tab');
+            NavNameEmpty('level4_tab');
+            NavNameEmpty('level5_tab');
+            NavNameEmpty('level6_tab');
+            
+            TabChange('level2_tab');
+            GetLevel2('demo.json');
+        }
+        $.GetLevel2_Click = function () {
+            NavNameEmpty('level3_tab');
+            NavNameEmpty('level4_tab');
+            NavNameEmpty('level5_tab');
+            NavNameEmpty('level6_tab');
+            
+            TabChange('level3_tab');
+            GetLevel3('demo.json');
+        }
+        $.GetLevel3_Click = function () {
+            //NavNameEmpty('level4_tab');
+            NavNameEmpty('level5_tab');
+            NavNameEmpty('level6_tab');
+            
+            TabChange('level5_tab');
+            GetLevel5('demo.json');
+        }
+        //$.GetLevel4_Click = function () {
+        //    NavNameEmpty('level5_tab');
+        //    NavNameEmpty('level6_tab');
+
+        //    TabChange('level5_tab');
+        //    GetLevel5('demo.json');
+        //}
+        $.GetLevel5_Click = function () {
+            NavNameEmpty('level6_tab');
+            debugger
+            TabChange('level6_tab');
+            GetLevel6('demo.json');
+        }
+        $.GetLevel6_Click = function () {
+            debugger
+            nav_firstenter = 1;
+        }
+    </script>
+</body>
+</html>
